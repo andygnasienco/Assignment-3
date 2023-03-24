@@ -78,20 +78,6 @@
 			});
 		});
 
-            //DELETE THIS LINE
-                document.getElementById("buttonClone").addEventListener("click", function() {
-			var buttonOriginal = document.getElementById("buttonClone");
-			var cloneButton = buttonOriginal.cloneNode(true);
-			document.body.appendChild(cloneButton);
-
-            //Clone function
-            cloneButton.addEventListener("click", function() {
-                var buttonOriginalChild = document.getElementById("buttonClone");
-			    var cloneButtonChild = buttonOriginalChild.cloneNode(true);
-			    document.body.appendChild(cloneButtonChild);
-			});
-		});
-
     </script>
 
     </body>
