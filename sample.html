@@ -17,6 +17,10 @@
 
     <button onclick="changeButtonColourRandom()" id="buttonRandom">Random!</button>
 
+    <h2>Clone button</h2>
+
+    <button onclick="cloneButton()" id="buttonClone">Clone!</button>
+
     <script>
 
         function changeButton(){
@@ -59,6 +63,21 @@
 			randomButton.style.left = randomPosition.x + "px";
 			randomButton.style.top = randomPosition.y + "px";
 		});
+
+        //Clone the button
+        document.getElementById("buttonClone").addEventListener("click", function() {
+			var buttonOriginal = document.getElementById("buttonClone");
+			var cloneButton = buttonOriginal.cloneNode(true);
+			document.body.appendChild(cloneButton);
+
+            //Clone function
+            cloneButton.addEventListener("click", function() {
+                var buttonOriginalChild = document.getElementById("buttonClone");
+			    var cloneButtonChild = buttonOriginalChild.cloneNode(true);
+			    document.body.appendChild(cloneButtonChild);
+			});
+		});
+
     </script>
 
     </body>
