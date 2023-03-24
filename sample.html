@@ -33,16 +33,32 @@
         //Generates a random colour for the button
         function changeButtonColourRandom() {
 			var letters = '0123456789ABCDEF';
-			var color = '#';
+			var colour = '#';
             var hexLength = 6;
             var hexValue = 16;
 
 			for (var i = 0; i < hexLength; i++) {
-				color += letters[Math.floor(Math.random() * hexValue)];
+				colour += letters[Math.floor(Math.random() * hexValue)];
 			}
-
-            document.getElementById("buttonRandom").style.backgroundColor = color;
+            return colour;
 		}
+
+        //This function will generate a random x and y value, this is where the button will be moved to
+        function randomPosition() {
+			var x = Math.floor(Math.random() * window.innerWidth);
+			var y = Math.floor(Math.random() * window.innerHeight);
+			return { x: x, y: y };
+		}
+
+        //This function will apply the random colour and place the button on a random position on the screen
+        document.getElementById("buttonRandom").addEventListener("click", function() {
+			var randomButton = document.getElementById("buttonRandom");
+			var randomPosition = randomPosition();
+
+            randomButton.style.backgroundColor = changeButtonColourRandom();
+			randomButton.style.left = randomPosition.x + "px";
+			randomButton.style.top = randomPosition.y + "px";
+		});
     </script>
 
     </body>
